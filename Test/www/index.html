@@ -26,6 +26,8 @@
 
     <script src="js/app.js"></script>
 
+    <link href="./css/style.css" rel="stylesheet" type="text/css">
+
     <!-- Needed for Cordova/PhoneGap (will be a 404 during development) -->
     <script src="cordova.js"></script>
       
@@ -111,21 +113,59 @@
                 <!-- Modal content area -->
                 <ion-content>
 
+                  <!-- <form ng-submit="createTask(task)">
+                    <ion-item>
+                      <ion-label color="blue">Show Name</ion-label>
+                      <ion-input type="text" placeholder="name"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label color="blue">Channel/Network</ion-label>
+                      <ion-input type="text" placeholder=""></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label color="blue">Airing Date</ion-label>
+                      <ion-datetime type="text" displayFormat="MMM/DD"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label color="blue"></ion-label>
+                      <ion-input type="text" placeholder="name"></ion-input>
+                    </ion-item>
+                  </form> -->
+                  <!-- <label class="item item-input">
+                        <div><input type="text" placeholder="Show Name" ng-model="task.title"></div>
+                        <div><input type="text" placeholder="Channel/Network" ng-model="task.class"></div>
+                        <div><input type="text" placeholder="Airing Date(s)" ng-model="task.date"></div>
+                        <div><input type="text" placeholder="Time" ng-model="task.time"></div>
+
+                  </label> -->
                   <form ng-submit="createTask(task)">
                     <div class="list">
                       <label class="item item-input">
-                        <input type="text" placeholder="Show Name" ng-model="task.title">
-                        <input type="text" placeholder="Channel/Network" ng-model="task.class">
-                        <input type="text" placeholder="Airing Date(s)" ng-model="task.date">
-                        <input type="text" placeholder="Time" ng-model="task.time">
-
-                          
-                      </label>
-                    </div>
-                    <div class="padding">
-                      <button type="submit" class="button button-block button-positive">Add New Show</button>
+                          Show Name 
+                          <input class="input_styling" type="text" placeholder="Whats the name of the show?" ng-model="task.title">
+                        </label>
+                        <label class="item item-input">
+                          Episode Number  
+                          <input class="input_styling" type="number" min="1" ng-model="task.episode" placeholder="1">
+                        </label>
+                        <label class="item item-input">
+                          Number of Episodes
+                          <input class="input_styling" type="number" min="1" ng-model="task.maxEpisode" placeholder="1">
+                        </label>
+                        <label class="item item-input">
+                          Airing Day  
+                          <input class="input_styling" type="text" placeholder="Friday" ng-model="task.day">
+                        </label>
+                        <label class="item item-input">
+                          Airing Time (optional)
+                          <input class="input_styling" type="time" ng-model="task.time" value="18:00">
+                        </label>
+                      <div class="padding">
+                        <button type="submit" class="button button-block button-positive">Add New Show</button>
+                      </div>
                     </div>
                   </form>
+
 
                 </ion-content>
               </div>

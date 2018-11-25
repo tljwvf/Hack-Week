@@ -77,14 +77,23 @@ angular.module('todo', ['ionic'])
     if(!$scope.activeProject || !task) {
       return;
     }
-      
+
     $scope.activeProject.tasks.push({
       title: task.title,
-        class: task.class,
-        time: task.time,
-        date: task.date
+      episode: task.episode,
+      maxEpisode: task.maxEpisode,
+      ongoing: true,
+      day: task.day,
+      time: task.time
+    })
+      
+    // $scope.activeProject.tasks.push({
+    //   title: task.title,
+    //     class: task.class,
+    //     time: task.time,
+    //     date: task.date
         
-    });
+    // });
       
     $scope.taskModal.hide();
 
