@@ -65,7 +65,29 @@ angular.module('todo', ['ionic'])
     Projects.setLastActiveIndex(index);
     $ionicSideMenuDelegate.toggleLeft(false);
   };
-
+    
+    $scope.deleteUser = function() {
+        var delUser = $ionicPopup.confirm({
+            title: "Are you sure you want to delete this user?",
+            cancelText: "No",
+            okText: "Yes",
+            okType: "button-assertive"
+        });
+        delUser.then(function(res) {
+            if(res){
+                var index = Projects.getLastActiveIndex();
+                $scope.projects.splice(index, 1);
+                Projects.setLastActiveIndex(0);
+                
+                $scope.selectProject($scope.projects[Projects.getLastActiveIndex()], 0);
+                Projects.save($scope.projects);
+                if($scope.projects.length == 0){
+                    $scope.newProject();
+                }
+            }
+        });
+    }
+    
   // Create our modal
   $ionicModal.fromTemplateUrl('new-task.html', function(modal) {
     $scope.taskModal = modal;
