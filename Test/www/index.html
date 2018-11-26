@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Test</title>
+    <title>Show Track</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
       
     <!-- Latest compiled and minified CSS -->
@@ -63,7 +63,7 @@
                           <ion-item ng-repeat="task in activeProject.tasks">
         <!--                    {{task.title}}-->
                                 <input type="checkbox" ng-model="task.done" ng-click="refresh(task, $index)">
-                                <span class="done-{{task.done}}">{{task.title}} airs on {{task.class}} at {{task.time}} on {{task.date}}</span>
+                                <span class="done-{{task.done}}">{{task.title}} airs on {{task.day}} at {{task.time}} on {{task.date}}</span>
                                 <span class="glyphicon glyphicon-remove" ng-click="removeTodos(task)" style="float:right"></span>
 
 

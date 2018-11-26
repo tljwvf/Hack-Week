@@ -52,12 +52,17 @@ angular.module('todo', ['ionic'])
   $scope.activeProject = $scope.projects[Projects.getLastActiveIndex()];
 
   // Called to create a new project
-  $scope.newProject = function() {
-    var projectTitle = prompt('Add new user');
-    if(projectTitle) {
-      createProject(projectTitle);
-    }
-  };
+    $scope.newProject = function() {
+        var classPopup = $ionicPopup.prompt({
+            title: "Enter username:",
+            cancelType: "button-assertive" 
+        });
+        classPopup.then(function(res) {
+            if(res){
+                createProject(res);
+            }
+        });
+    };
 
   // Called to select the given project
   $scope.selectProject = function(project, index) {
@@ -99,7 +104,6 @@ angular.module('todo', ['ionic'])
     if(!$scope.activeProject || !task) {
       return;
     }
-
     $scope.activeProject.tasks.push({
       title: task.title,
       episode: task.episode,
@@ -144,13 +148,15 @@ angular.module('todo', ['ionic'])
   $timeout(function() {
     if($scope.projects.length == 0) {
       while(true) {
-        var projectTitle = prompt('Enter username:');
-        if(projectTitle) {
-          createProject(projectTitle);
-          break;
+        var projectTitle = $ionicPopup.prompt({
+            title: "Enter username:"
+        });
+        projectTitle.then(function(result) {
+            createProject(result);
+        });
+        break;
         }
       }
-    }
   }, 1000);
     
 $scope.remaining = function() {
