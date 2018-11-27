@@ -114,31 +114,6 @@
                 <!-- Modal content area -->
                 <ion-content>
 
-                  <!-- <form ng-submit="createTask(task)">
-                    <ion-item>
-                      <ion-label color="blue">Show Name</ion-label>
-                      <ion-input type="text" placeholder="name"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                      <ion-label color="blue">Channel/Network</ion-label>
-                      <ion-input type="text" placeholder=""></ion-input>
-                    </ion-item>
-                    <ion-item>
-                      <ion-label color="blue">Airing Date</ion-label>
-                      <ion-datetime type="text" displayFormat="MMM/DD"></ion-input>
-                    </ion-item>
-                    <ion-item>
-                      <ion-label color="blue"></ion-label>
-                      <ion-input type="text" placeholder="name"></ion-input>
-                    </ion-item>
-                  </form> -->
-                  <!-- <label class="item item-input">
-                        <div><input type="text" placeholder="Show Name" ng-model="task.title"></div>
-                        <div><input type="text" placeholder="Channel/Network" ng-model="task.class"></div>
-                        <div><input type="text" placeholder="Airing Date(s)" ng-model="task.date"></div>
-                        <div><input type="text" placeholder="Time" ng-model="task.time"></div>
-
-                  </label> -->
                   <form ng-submit="createTask(task)">
                     <div class="list">
                       <label class="item item-input">
@@ -159,7 +134,8 @@
                         </label>
                         <label class="item item-input">
                           Airing Time (optional)
-                          <input class="input_styling" type="time" ng-model="task.time" value="18:00">
+                          <input class="input_styling" type="number" ng-model="task.timeHour" placeholder="18" max="23" min="0">:
+                          <input class="input_styling" type="number" ng-model="task.timeMinute" placeholder="00" max="59" min="0">
                         </label>
                       <div class="padding">
                         <button type="submit" class="button button-block button-positive">Add New Show</button>
