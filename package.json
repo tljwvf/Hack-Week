@@ -3,13 +3,15 @@
   "version": "0.0.1",
   "description": "An Ionic project",
   "devDependencies": {
-    "@ionic/v1-toolkit": "^1.0.0",
+    "@ionic/v1-toolkit": "1.0.14",
     "gulp": "^3.5.6",
     "gulp-clean-css": "^3.7.0",
     "gulp-rename": "^1.2.0",
     "gulp-sass": "^3.1.0"
   },
   "dependencies": {
+    "android-versions": "^1.4.0",
+    "cordova-android": "^7.1.4",
     "cordova-ios": "4.5.5",
     "cordova-plugin-device": "^2.0.2",
     "cordova-plugin-ionic-keyboard": "^2.1.3",
