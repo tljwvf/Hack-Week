@@ -61,9 +61,8 @@
               <ion-content scroll="false">
                         <ion-list>
                           <ion-item ng-repeat="task in activeProject.tasks">
-        <!--                    {{task.title}}-->
                                 <input type="checkbox" ng-model="task.done" ng-click="refresh(task, $index)">
-                                <span class="done-{{task.done}}">{{task.title}} airs on {{task.day}} at {{task.time}} on {{task.date}}</span>
+                                <button class="button-icon done-{{task.done}}" ng-click="showInfo($index)">{{task.title}} airs on {{task.day}} at {{task.time}}</button>
                                 <span class="glyphicon glyphicon-remove" ng-click="removeTodos(task)" style="float:right"></span>
 
 

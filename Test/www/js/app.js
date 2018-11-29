@@ -92,8 +92,27 @@ angular.module('todo', ['ionic'])
             }
         });
     }
-
-    // Create our modal
+    $scope.showInfo = function(index) {
+        var currentShow = $scope.activeProject.tasks[index];
+        var currentEpisode = currentShow.episode;
+        var episode = currentShow.maxEpisode;
+        var remaining = (episode-currentEpisode);
+        var infoPopup = $ionicPopup.confirm({
+            title: currentShow.title,
+            template: "Current episode: " + currentEpisode + "<br>Total episodes: " + episode + "<br>Remaining episodes: " + remaining,
+            okText: "Next episode",
+            cancelText: "OK",
+            okType: 'button-balanced',
+            cancelType: 'button-positive'
+        });
+        infoPopup.then(function(res) {
+            if(res){
+                $scope.activeProject.tasks[index].episode++;
+            }
+        });
+        
+    }
+    
     $ionicModal.fromTemplateUrl('new-task.html', function(modal) {
         $scope.taskModal = modal;
     }, {
@@ -119,17 +138,8 @@ angular.module('todo', ['ionic'])
             time: task.time
         })
 
-        // $scope.activeProject.tasks.push({
-        //   title: task.title,
-        //     class: task.class,
-        //     time: task.time,
-        //     date: task.date
-
-        // });
-
         $scope.taskModal.hide();
 
-        // Inefficient, but save all the projects
         Projects.save($scope.projects);
 
         task.title = "";
@@ -147,10 +157,6 @@ angular.module('todo', ['ionic'])
         $ionicSideMenuDelegate.toggleLeft();
     };
 
-
-    // Try to create the first project, make sure to defer
-    // this by using $timeout so everything is initialized
-    // properly
     $timeout(function() {
         if ($scope.projects.length == 0) {
             while (true) {
