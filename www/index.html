@@ -129,7 +129,15 @@
                         </label>
                         <label class="item item-input">
                           Airing Day  
-                          <input class="input_styling" type="text" placeholder="Friday" ng-model="task.day">
+                          <select name="type" class="input_styling" placeholder="Friday" ng-model="task.day">
+                              <option value="Monday">Monday</option>
+                              <option value="Tuesday">Tuesday</option>
+                              <option value="Wednesday">Wednesday</option>
+                              <option value="Thursday">Thursday</option>
+                              <option value="Friday">Friday</option>
+                              <option value="Saturday">Saturday</option>
+                              <option value="Sunday">Sunday</option>
+                        </select>
                         </label>
                         <label class="item item-input">
                           Airing Time (optional)
